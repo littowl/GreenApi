@@ -6,7 +6,7 @@ const AddContactInput = () => {
         <InputGroup>
             <Input placeholder="Введите номер собеседника..."/>
             <InputRightElement>
-                <IconButton variant='outline' colorScheme='teal' aria-label='Add Contact' icon={<AddIcon />}/>
+                <IconButton variant='ghoast' colorScheme='teal' aria-label='Add Contact' icon={<AddIcon />}/>
             </InputRightElement> 
         </InputGroup>
     )

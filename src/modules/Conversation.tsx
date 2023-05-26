@@ -12,7 +12,7 @@ const Conversation = () => {
                 <Text>Выберите контакт, чтобы начать общение.</Text>
             </Flex> */}
             <Box>
-                <Header />
+                <Header userNumber='no'/>
                 <Flex flexDir="column" pt="100px" maxH="80vh" overflow="auto">
                     <Message type='user' text='hello'/>
                     <Message type='answer' text='lo!!'/>
