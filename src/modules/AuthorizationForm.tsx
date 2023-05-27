@@ -7,7 +7,7 @@ import { setUser } from "../store/slices/userSlice"
 import { useAppDispatch } from "../hooks"
 
 const AuthorizationForm = () => {
-    const [idInstance, setIdInstanse] = useState('')
+    const [idInstance, setIdInstance] = useState('')
     const [apiTokenInstance, setApiTokenInstance] = useState('')
     const [error, setError] = useState(false)
     const url = `https://api.green-api.com/waInstance${idInstance}/getSettings/${apiTokenInstance}`
@@ -16,18 +16,20 @@ const AuthorizationForm = () => {
     
     const Auth = async () => {
         if (idInstance == '' || apiTokenInstance == '') return 0
-        axios.get(url)
+        await axios.get(url)
         .then((res) => {
             dispatch(setUser({
                 idInstance: idInstance,
                 apiTokenInstance: apiTokenInstance,
                 wid: res.data.wid
             }))
+            
             navigate('/main')
         })
         .catch(() => {
             setError(true)
         })
+        console.log(idInstance)
     }
     return (
         <Flex flexDir="column" h="100vh" justifyContent="center" alignItems="center">
@@ -35,7 +37,7 @@ const AuthorizationForm = () => {
             <Box my="5">
                 <Input 
                     mb="2" placeholder="Введите idInstanse..." type="id" value={idInstance}
-                    onChange={(e) => setIdInstanse(e.target.value)}
+                    onChange={(e) => setIdInstance(e.target.value)}
                 />
                 <Input
                     placeholder="Введите apiTokenInstance..." type="token" value={apiTokenInstance}

@@ -13,9 +13,10 @@ const userSlice = createSlice({
     reducers: {
         // устанавливаем юзера
         setUser(state, action) { 
-            state.idInstance = action.payload.idInstanse
+            state.idInstance = action.payload.idInstance
             state.apiTokenInstance = action.payload.apiTokenInstance
             state.wid = action.payload.wid
+            console.log(state)
         },
         // убираем юзера
         removeUser(state) {

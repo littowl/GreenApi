@@ -8,7 +8,7 @@ type MessageProps = {
 const Message = ( {text, type}: MessageProps ) => {
     return(
         <>
-        {type == 'user' ? 
+        {type == 'sentMessage' ? 
             <Box bgColor="#d9fdd3" maxW="300px" borderRadius="15px" h="auto" 
             p="3" mb="2" ml="60%">
                 {text}

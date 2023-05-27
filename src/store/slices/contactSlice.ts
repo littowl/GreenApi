@@ -1,8 +1,14 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 
+interface Messages {
+    text:string,
+    type:string
+}
+
 interface contactState {
 	number: string,
-    selected: boolean
+    selected: boolean,
+    messages: Messages[]
 }
 
 interface ContactsState {
@@ -17,12 +23,13 @@ const contactSlice = createSlice({
     name: 'contacts',
     initialState,
     reducers: { //набор методов, из них формируется reducer
-        setContact(state, action) {      
-                state.contacts.push({
-                    number: action.payload.number,
-                    selected: false
-                })    
-            
+        setContact(state, action) {
+                if (state.contacts.find((contact) => contact.number === action.payload.number) === undefined)      
+                    state.contacts.push({
+                        number: action.payload.number,
+                        selected: false,
+                        messages: []
+                    })    
         },
         removeContact(state, action) {
             state.contacts = state.contacts.filter(contact => contact.number !== action.payload.number)
@@ -33,12 +40,19 @@ const contactSlice = createSlice({
             if (selectedContact) {
                 selectedContact.selected = !selectedContact.selected
             } 
-            
-            
+        },
+        addMessage(state, action) {
+            const currentContact = state.contacts.find((item) => item.number === action.payload.number)
+            if (currentContact) {
+                currentContact.messages.push({
+                    text:action.payload.text,
+                    type:action.payload.type
+                })
+            }
         }
     }
 })
 
-export const {setContact, removeContact, selectContact} = contactSlice.actions //экспорт actions, которые будут вызывать редьюсеры
+export const {setContact, removeContact, selectContact, addMessage} = contactSlice.actions //экспорт actions, которые будут вызывать редьюсеры
 
 export default contactSlice.reducer //reducer, сформированный из reducers
