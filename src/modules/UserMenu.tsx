@@ -8,15 +8,13 @@ const UserMenu = () => {
 
     const navigate = useNavigate()
     const dispatch = useAppDispatch()
-    const changeNumber = (number:string) => {
-        return '+' + number.slice(0, number.length-5) 
-    }
+    
     function Logout() {
         dispatch(removeUser)
         navigate('/')
     }
     return(
-        <Header userNumber={changeNumber(userNumber)} func={Logout} />
+        <Header userNumber={userNumber} func={Logout} />
         
     )
 }

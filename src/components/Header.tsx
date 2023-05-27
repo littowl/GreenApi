@@ -10,12 +10,15 @@ interface HeaderProps {
 
 const Header:FC<HeaderProps> = ({userNumber, func}: HeaderProps) => {
     const [open, setOpen] = useState(false)
-    
+    const changeNumber = (number:string) => {
+        return '+' + number.slice(0, number.length-5) 
+    }
+
     return (
         <Flex alignItems="center" justifyContent="space-between" bgColor="#f0f2f5" w="full" p="2">
             <Flex alignItems="center">
                 <Avatar />
-                <Text ml="2">{userNumber}</Text>
+                <Text ml="2">{changeNumber(userNumber)}</Text>
             </Flex>
            <Box pos="relative">
                 <IconButton aria-label="Menu" icon={<HamburgerIcon />} onClick={() => setOpen(!open)}/>

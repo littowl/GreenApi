@@ -3,15 +3,18 @@ import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons'
 import { useState } from 'react'
 
 type ContactProps = {
-    name?: string,
-    message?: string,
+    name: string,
+    message: any,
     deleteChat: any,
     selectChat: any
 }
 
 const Contact = ( { name, message, deleteChat, selectChat }: ContactProps ) => {
     const [open, setOpen] = useState(false)
-    
+    const changeNumber = (number:string) => {
+        return '+' + number.slice(0, number.length-5) 
+    }
+
     return (
         <Flex onClick={selectChat.bind(this, name)}  cursor="pointer" flexDir="row"  p='2' alignItems="center" gap='2' w="full" >
 
@@ -19,7 +22,7 @@ const Contact = ( { name, message, deleteChat, selectChat }: ContactProps ) => {
                 <Avatar src = ''/>
             </Box>
             <Box>
-                <Text>{name}</Text>
+                <Text>{changeNumber(name)}</Text>
                 <Text>{message}</Text>
             </Box>
             <Box w="full" textAlign="right" >

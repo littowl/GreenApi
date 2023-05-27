@@ -8,6 +8,11 @@ const AddContact = () => {
     const [number, setNumber] = useState("")
     const dispatch = useAppDispatch()
 
+    // приводим номер к виду, с которым можно работать в запросах
+    const editNumber = (number:string):string => {
+        return number.concat('@c.us')
+    }
+
     return (
         <InputGroup>
             <Input 
@@ -19,7 +24,7 @@ const AddContact = () => {
                 {number &&
                     <IconButton 
                         variant='ghoast' colorScheme='teal' aria-label='Add Contact' icon={<AddIcon />}
-                        onClick={() => dispatch(setContact({number: number}))}
+                        onClick={() => dispatch(setContact({number: editNumber(number)}))}
                     />
                 }
                 
