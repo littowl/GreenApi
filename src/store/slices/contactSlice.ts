@@ -28,6 +28,7 @@ const contactSlice = createSlice({
             state.contacts = state.contacts.filter(contact => contact.number !== action.payload.number)
         },
         selectContact(state, action) {
+            state.contacts.map((contact) => contact.selected=false)
             const selectedContact = state.contacts.find((item) => item.number === action.payload.number)
             if (selectedContact) {
                 selectedContact.selected = !selectedContact.selected

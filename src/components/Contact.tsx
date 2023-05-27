@@ -14,6 +14,7 @@ const Contact = ( { name, message, deleteChat, selectChat }: ContactProps ) => {
     
     return (
         <Flex onClick={selectChat.bind(this, name)}  cursor="pointer" flexDir="row"  p='2' alignItems="center" gap='2' w="full" >
+
             <Box>
                 <Avatar src = ''/>
             </Box>

@@ -8,7 +8,6 @@ import { Link, useNavigate } from 'react-router-dom'
 
 
 const Main = () => {
-    const navigate = useNavigate()
     const {wid} = useAppSelector(state => state.user)
     
     return(
