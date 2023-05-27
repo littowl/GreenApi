@@ -8,12 +8,6 @@ const AddContact = () => {
     const [number, setNumber] = useState("")
     const dispatch = useAppDispatch()
 
-    const add = () => {
-        dispatch(setContact({
-            number: number
-        }))
-    }
-
     return (
         <InputGroup>
             <Input 
@@ -22,10 +16,13 @@ const AddContact = () => {
             />
 
             <InputRightElement m={2}>
-                <IconButton 
-                    variant='ghoast' colorScheme='teal' aria-label='Add Contact' icon={<AddIcon />}
-                    onClick={add}
-                />
+                {number &&
+                    <IconButton 
+                        variant='ghoast' colorScheme='teal' aria-label='Add Contact' icon={<AddIcon />}
+                        onClick={() => dispatch(setContact({number: number}))}
+                    />
+                }
+                
             </InputRightElement> 
         </InputGroup>
     )

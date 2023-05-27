@@ -22,7 +22,6 @@ const Main = () => {
                     </Box> 
             
                     <Conversation />
-                    {console.log(wid)}
                 </>
                 
                 : 
