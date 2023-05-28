@@ -14,12 +14,13 @@ const Main = () => {
             <Flex>
                 {wid ? 
                 <>
-                    <Box w="30%">
+                    
+                    <Box w={[0, 0, 400]}>
                         <UserMenu />
                         <AddContact />
                         <ContactsList />
                     </Box> 
-            
+                    
                     <Conversation />
                 </>
                 

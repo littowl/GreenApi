@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 type ContactProps = {
     name: string,
-    message: any,
+    message: string,
     deleteChat: any,
     selectChat: any
 }
@@ -14,6 +14,8 @@ const Contact = ( { name, message, deleteChat, selectChat }: ContactProps ) => {
     const changeNumber = (number:string) => {
         return '+' + number.slice(0, number.length-5) 
     }
+
+    
 
     return (
         <Flex onClick={selectChat.bind(this, name)}  cursor="pointer" flexDir="row"  p='2' alignItems="center" gap='2' w="full" >
@@ -26,7 +28,7 @@ const Contact = ( { name, message, deleteChat, selectChat }: ContactProps ) => {
                 <Text>{message}</Text>
             </Box>
             <Box w="full" textAlign="right" >
-                <Text>Вторник</Text>
+                
                 <IconButton size="xs" pos="relative" onClick={() => setOpen(!open)} icon={<ChevronDownIcon />} aria-label='contact-menu' /> 
                  {open && 
                     <VStack border="1px" borderRadius="5" pos="absolute" bg="white" w="170px" zIndex="2">

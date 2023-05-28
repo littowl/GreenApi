@@ -14,7 +14,7 @@ const UserMenu = () => {
         navigate('/')
     }
     return(
-        <Header userNumber={userNumber} func={Logout} />
+        <Header userNumber={userNumber} func={Logout} type="user"/>
         
     )
 }

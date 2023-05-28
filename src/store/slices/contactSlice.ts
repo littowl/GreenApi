@@ -49,10 +49,14 @@ const contactSlice = createSlice({
                     type:action.payload.type
                 })
             }
+        },
+        closeChat(state) {
+            state.contacts.map((contact) => contact.selected=false)
+            console.log(state.contacts)
         }
     }
 })
 
-export const {setContact, removeContact, selectContact, addMessage} = contactSlice.actions //экспорт actions, которые будут вызывать редьюсеры
+export const {setContact, removeContact, selectContact, addMessage, closeChat} = contactSlice.actions //экспорт actions, которые будут вызывать редьюсеры
 
 export default contactSlice.reducer //reducer, сформированный из reducers

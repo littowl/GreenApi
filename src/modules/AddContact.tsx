@@ -12,12 +12,17 @@ const AddContact = () => {
     const editNumber = (number:string):string => {
         return number.concat('@c.us')
     }
+    const handleKeyDown = (event:React.KeyboardEvent<HTMLInputElement>) => {
+        if (event.key === 'Enter') {
+            dispatch(setContact({number: editNumber(number)}))
+        }
+      };
 
     return (
         <InputGroup>
             <Input 
                 m={2} pl={2} bg="white"  placeholder="Введите номер собеседника..."
-                onChange={(e) => setNumber(e.target.value)}    
+                onChange={(e) => setNumber(e.target.value)} onKeyDown={e => e.key === 'Enter' && dispatch(setContact({number: editNumber(number)}))}
             />
 
             <InputRightElement m={2}>

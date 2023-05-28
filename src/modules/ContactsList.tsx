@@ -12,14 +12,16 @@ const ContactsList = () => {
     }
     function selectChat(number:string) {
         dispatch(selectContact({number}))
-        console.log(numbers)
+
     }
 
     return(
         <VStack overflow="auto" maxH="80vh">
             {numbers.map((item) => (
+                
                 <Contact    
-                    message={item.messages[item.messages.length - 1].text} name={item.number} key={item.number} 
+                    message={item.messages.length === 0 ? "" : item.messages[item.messages.length - 1].text} 
+                    name={item.number} key={item.number} 
                     deleteChat={deleteChat} selectChat={selectChat}
                 />
             ))}

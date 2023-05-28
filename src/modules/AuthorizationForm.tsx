@@ -37,11 +37,11 @@ const AuthorizationForm = () => {
             <Box my="5">
                 <Input 
                     mb="2" placeholder="Введите idInstanse..." type="id" value={idInstance}
-                    onChange={(e) => setIdInstance(e.target.value)}
+                    onChange={(e) => setIdInstance(e.target.value)} onKeyDown={e => e.key === 'Enter' && Auth()}
                 />
                 <Input
                     placeholder="Введите apiTokenInstance..." type="token" value={apiTokenInstance}
-                    onChange={(e) => setApiTokenInstance(e.target.value)}
+                    onChange={(e) => setApiTokenInstance(e.target.value)} onKeyDown={e => e.key === 'Enter' && Auth()}
                 />
             </Box>
             
