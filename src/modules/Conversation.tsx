@@ -40,11 +40,14 @@ const Conversation = () => {
         await axios.get(urlReceive).then((res) => {
             console.log(res)
             if (res.data !== null) {
-                dispatch(addMessage({
-                    number: chatCurrentUser?.number,
-                    text: res.data.body.messageData.textMessageData.textMessage,
-                    type:'receivedMessage'
-                }))
+                if (res.data.body.typeWebhook === 'outgoingMessageReceived') {
+                    dispatch(addMessage({
+                        number: chatCurrentUser?.number,
+                        text: res.data.body.messageData.textMessageData.textMessage,
+                        type:'receivedMessage'
+                    }))
+                }
+                
                 deleteMessage(res.data.receiptId)
             }
         })
