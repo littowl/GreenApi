@@ -37,28 +37,25 @@ const Conversation = () => {
     }
 
     const receiveMessage = async () => {
-        const result = await axios.get(urlReceive)
-
-        // while (result.data.body.typeWebhook !== 'outgoingMessageReceived') {
-        //     deleteMessage(result.data.receiptId)
-        // }
-
-        // if (result.data.body.typeWebhook === 'outgoingMessageReceived') {
-        //     dispatch(addMessage({
-        //         number: chatCurrentUser?.number,
-        //         text: result.data.body.messageData.textMessageData.textMessage,
-        //         type:'receivedMessage'
-        //     }))
-        // }
-        // deleteMessage(result.data.receiptId) 
-        
-        
-        
+        await axios.get(urlReceive).then((res) => {
+            console.log(res)
+            if (res.data !== null) {
+                dispatch(addMessage({
+                    number: chatCurrentUser?.number,
+                    text: res.data.body.messageData.textMessageData.textMessage,
+                    type:'receivedMessage'
+                }))
+                deleteMessage(res.data.receiptId)
+            }
+        })
     }
 
     const deleteMessage = async (receiptId:string) => {
         await axios.delete(`https://api.green-api.com/waInstance${user.idInstance}/deleteNotification/${user.apiTokenInstance}/${receiptId}
         `)
+        receiveMessage()
+        
+        
     }
    
     return(
