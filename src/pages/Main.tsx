@@ -27,7 +27,7 @@ const Main = () => {
                 : 
                 <Flex justifyContent="center" alignItems="center" flexDir="column" w="full" h="100vh" gap={5}>
                     <Text>Для доступа к этой странице небходимо пройти авторизацию.</Text>
-                    <Link to='/'><Button>Авторизоваться</Button></Link>
+                    <Link to='/'><Button bgColor="#4cae4f">Авторизоваться</Button></Link>
                 </Flex>
                 }
                 

@@ -12,7 +12,6 @@ const ContactsList = () => {
     }
     function selectChat(number:string) {
         dispatch(selectContact({number}))
-
     }
 
     return(

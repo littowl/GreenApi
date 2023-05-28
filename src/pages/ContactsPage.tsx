@@ -3,7 +3,8 @@ import UserMenu from "../modules/UserMenu"
 import AddContact from "../modules/AddContact"
 import ContactsList from "../modules/ContactsList"
 
-const Contacts = () => {
+const ContactsPage = () => {
+    
     return(
         <Box>
             <UserMenu />
@@ -13,4 +14,4 @@ const Contacts = () => {
     )
 }
 
-export default Contacts
+export default ContactsPage

@@ -45,7 +45,7 @@ const AuthorizationForm = () => {
                 />
             </Box>
             
-            <Button onClick={Auth}>Авторизоваться</Button>
+            <Button onClick={Auth} bgColor="#4cae4f">Авторизоваться</Button>
             {error && 
                 <Box color="red" >Данные от аккаунта неверны.</Box>
             }

@@ -1,6 +1,7 @@
 import { Avatar, Box, Button, Card, Flex, IconButton, Text, VStack } from '@chakra-ui/react'
-import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons'
+import { ChevronDownIcon, ChevronUpIcon, DeleteIcon } from '@chakra-ui/icons'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 type ContactProps = {
     name: string,
@@ -18,25 +19,48 @@ const Contact = ( { name, message, deleteChat, selectChat }: ContactProps ) => {
     
 
     return (
-        <Flex onClick={selectChat.bind(this, name)}  cursor="pointer" flexDir="row"  p='2' alignItems="center" gap='2' w="full" >
-
-            <Box>
-                <Avatar src = ''/>
-            </Box>
-            <Box>
-                <Text>{changeNumber(name)}</Text>
-                <Text>{message}</Text>
-            </Box>
-            <Box w="full" textAlign="right" >
+        <Box onClick={selectChat.bind(this, name)}  cursor="pointer"  w="full" p={[2, 1]} borderBottom="1px" borderColor="gray">
+            <Flex display={['flex', 'flex', 'none']} alignItems="center" flexDir="row">
                 
-                <IconButton size="xs" pos="relative" onClick={() => setOpen(!open)} icon={<ChevronDownIcon />} aria-label='contact-menu' /> 
-                 {open && 
-                    <VStack border="1px" borderRadius="5" pos="absolute" bg="white" w="170px" zIndex="2">
-                        <Button onClick={deleteChat.bind(this, name)} variant='ghost' colorScheme="gray" w="full">Удалить</Button>
-                    </VStack>
-                }
-            </Box>
-        </Flex>
+                    <Box w="85%">
+                    <Link to='/main'>
+                            <Flex >  
+                                <Avatar src = ''/>
+                                <Box ml="2">
+                                    <Text>{changeNumber(name)}</Text>
+                                    <Text>{message}</Text>
+                                </Box>
+                            </Flex>             
+                            </Link>
+                    </Box>
+                
+                <Box pos="absolute" right="2">
+                    <IconButton size={['sm', 'sm', 'xs']} pos="relative" onClick={deleteChat.bind(this, name)} icon={<DeleteIcon />} aria-label='contact-menu' /> 
+                        
+                </Box>
+                
+                    
+                    
+                        
+                        
+                    
+            </Flex>
+            
+            <Flex display={['none', 'none', 'flex']} p='2' alignItems="center" gap="2" w="full">
+                <Box>
+                    <Avatar src = ''/>
+                </Box>
+                <Box>
+                    <Text>{changeNumber(name)}</Text>
+                    <Text>{message}</Text>
+                </Box>
+                <Box w="full" textAlign="right" >
+                      
+                <IconButton size={['sm', 'sm', 'xs']} pos="relative" onClick={deleteChat.bind(this, name)} icon={<DeleteIcon />} aria-label='contact-menu' /> 
+                </Box>
+            </Flex>
+            
+        </Box>
     )
 }
 
