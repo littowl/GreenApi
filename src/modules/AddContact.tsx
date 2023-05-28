@@ -1,9 +1,8 @@
-import { Box, IconButton, Input, InputGroup, InputRightElement } from "@chakra-ui/react"
+import { IconButton, Input, InputGroup, InputRightElement } from "@chakra-ui/react"
 import { AddIcon } from '@chakra-ui/icons'
 import { setContact } from "../store/slices/contactSlice"
 import { useState } from "react"
 import { useAppDispatch } from "../hooks"
-import { setConstantValue } from "typescript"
 
 const AddContact = () => {
     const [number, setNumber] = useState("")

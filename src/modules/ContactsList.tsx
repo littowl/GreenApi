@@ -1,5 +1,5 @@
 import Contact from '../components/Contact'
-import { Stack, HStack, VStack } from '@chakra-ui/react'
+import { VStack } from '@chakra-ui/react'
 import { useAppDispatch, useAppSelector } from '../hooks'
 import { removeContact, selectContact } from '../store/slices/contactSlice'
 

@@ -1,13 +1,11 @@
-import { Container, Flex, Box, Text, Avatar, IconButton, Button } from '@chakra-ui/react'
+import { Flex, Box, Text, Button } from '@chakra-ui/react'
 import Message from '../components/Message'
 import ConversationInput from '../components/ConversationInput'
-import { HamburgerIcon } from '@chakra-ui/icons'
 import Header from '../components/Header'
 import { useAppDispatch, useAppSelector } from '../hooks'
 import axios from 'axios'
-import { addMessage, closeChat, setContact } from '../store/slices/contactSlice'
+import { addMessage } from '../store/slices/contactSlice'
 import { Link } from 'react-router-dom'
-import { useEffect } from 'react'
 
 const Conversation = () => {
     const dispatch = useAppDispatch()

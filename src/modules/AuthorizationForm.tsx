@@ -1,8 +1,7 @@
 import { Box, Button, Flex, Input, Text } from "@chakra-ui/react"
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 import axios from "axios"
-import { useDispatch } from "react-redux"
 import { setUser } from "../store/slices/userSlice"
 import { useAppDispatch } from "../hooks"
 
@@ -44,7 +43,7 @@ const AuthorizationForm = () => {
                     onChange={(e) => setApiTokenInstance(e.target.value)} onKeyDown={e => e.key === 'Enter' && Auth()}
                 />
             </Box>
-            
+
             <Button onClick={Auth} bgColor="#4cae4f">Авторизоваться</Button>
             {error && 
                 <Box color="red" >Данные от аккаунта неверны.</Box>
