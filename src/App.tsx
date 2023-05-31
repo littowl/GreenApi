@@ -13,7 +13,7 @@ function App() {
       <BrowserRouter>
       <Provider store={store}>
         <Routes>
-          <Route path='/' element = {<Authorization />} />
+          <Route path='*' element = {<Authorization />} />
           <Route path='main' element = {<Main />} />
           <Route path='contacts' element = {<ContactsPage />} />
         </Routes>
