@@ -2,7 +2,7 @@
   "name": "whats",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://littowl.github.io/GreenApi/",
+  "homepage": "https://littowl.github.io/GreenApi",
   "dependencies": {
     "@chakra-ui/icons": "^2.0.19",
     "@chakra-ui/react": "^2.6.1",
