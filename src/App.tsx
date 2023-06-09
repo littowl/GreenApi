@@ -10,7 +10,7 @@ import { Provider } from 'react-redux';
 function App() {
   return (
     <ChakraProvider>
-      <HashRouter>
+      <BrowserRouter>
       <Provider store={store}>
         <Routes>
           <Route path='*' element = {<Authorization />} />
@@ -20,7 +20,7 @@ function App() {
       </Provider>
       
         
-      </HashRouter>
+      </BrowserRouter>
       
     </ChakraProvider>
   );
