@@ -13,7 +13,7 @@ function App() {
       <HashRouter>
       <Provider store={store}>
         <Routes>
-          <Route exact path='*' element = {<Authorization />} />
+          <Route path='*' element = {<Authorization />} />
           <Route path='main' element = {<Main />} />
           <Route path='contacts' element = {<ContactsPage />} />
         </Routes>
